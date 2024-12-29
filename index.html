@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Insertion</title>
+</head>
+<body>
+<h1>Bloons Console Date Calc</h1>
+
+<p>The date for the console version of Bloons TD 6 is out of date by <b>596 Days</b>.</p>
+
+<h3 id="dateParagraph"></h3>
+
+<script>
+  // Function to get the date 596 days before today
+  function getDate596DaysBeforeToday() {
+    const date = new Date();
+    date.setDate(date.getDate() - 596);
+    return date.toLocaleDateString(); // Format the date as a string
+  }
+
+  // Get today's date
+  const today = new Date().toLocaleDateString(); // Format today's date as a string
+
+  // Get the date 596 days before today
+  const otherDate = getDate596DaysBeforeToday();
+
+  // Insert the dates into the paragraph
+  const dateParagraph = document.getElementById('dateParagraph');
+  dateParagraph.textContent = `Today's Date: ${today} --- Bloons Console Date: ${otherDate}`;
+</script>
+</body>
+</html>
+
