@@ -19,7 +19,7 @@
   function getDate596DaysBeforeToday() {
     const date = new Date();
     date.setDate(date.getDate() - 596);
-    return date.toLocaleDateString(); // Format the date as a string
+    return date; // Format the date as a string
   }
 
   // Get today's date
@@ -30,13 +30,16 @@
 
   // Insert the dates into the paragraph
   const dateParagraph = document.getElementById('dateParagraph');
-  dateParagraph.textContent = `Today's Date: ${today} --- Bloons Console Date: ${otherDate}`;
+  dateParagraph.textContent = `Today's Date: ${today} --- Bloons Console Date: ${otherDate.toLocaleDateString()}`;
 
   // Update the Ethan link query dynamically
   const ethan_link = document.getElementById('ethan_link');
 
   // Convert the `otherDate` to the format required for the YouTube query (e.g., YYYY MMM DD)
-  const [month, day, year] = otherDate.split('/');
+  let day = otherDate.getDate();
+  let month = otherDate.getMonth() + 1;
+  let year = otherDate.getFullYear();
+
   let formattedDate = `${new Date(year, month - 1).toLocaleString('en-US', { month: 'short' })} ${day}, ${year}`;
 
   formattedDate.replace(" ", "%20")
