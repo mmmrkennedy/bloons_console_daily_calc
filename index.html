@@ -12,6 +12,8 @@
 
 <h3 id="dateParagraph"></h3>
 
+<p><a id="ethan_link" href="">Link to Ethan Reid's Channel with a search for the date</a></p>
+
 <script>
   // Function to get the date 596 days before today
   function getDate596DaysBeforeToday() {
@@ -29,6 +31,17 @@
   // Insert the dates into the paragraph
   const dateParagraph = document.getElementById('dateParagraph');
   dateParagraph.textContent = `Today's Date: ${today} --- Bloons Console Date: ${otherDate}`;
+
+  // Update the Ethan link query dynamically
+  const ethan_link = document.getElementById('ethan_link');
+
+  // Convert the `otherDate` to the format required for the YouTube query (e.g., YYYY MMM DD)
+  const [month, day, year] = otherDate.split('/');
+  let formattedDate = `${new Date(year, month - 1).toLocaleString('en-US', { month: 'short' })} ${day}, ${year}`;
+
+  formattedDate.replace(" ", "%20")
+
+  ethan_link.href = `https://www.youtube.com/@EthanReid/search?query=${formattedDate}`;
 </script>
 </body>
 </html>
